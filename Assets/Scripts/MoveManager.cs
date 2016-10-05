@@ -40,11 +40,12 @@ public class MoveManager : MonoBehaviour {
 				m_directionIndicator.position =  hit.point;
 				print (hit.collider.gameObject.name);
 				Vector3 projectedPositionOfGround = new Vector3 (m_transform.position.x, m_transform.position.z,0.1f );
-				distanceBetweenPlayerAndDirection = m_directionIndicator.position - projectedPositionOfGround;
+				Vector3 directionOfMove = new Vector3 (m_transform.position.x, 0,m_transform.position.z );
+				distanceBetweenPlayerAndDirection = m_directionIndicator.position - directionOfMove;
 
 					Quaternion rotation = Quaternion.LookRotation (Vector3.down,distanceBetweenPlayerAndDirection );
 				m_directionIndicator.rotation = rotation;
-				//m_directionIndicator.eulerAngles.Set (m_directionIndicator.eulerAngles.x, 0, -90);
+
 			}
 			else {
 
